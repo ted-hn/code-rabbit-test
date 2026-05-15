@@ -4,6 +4,13 @@ import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
 
+/**
+ * Root application component that renders the demo UI and manages theme and counter state.
+ *
+ * Provides a light/dark theme toggle (persisted to localStorage and applied to the document root), a click counter, branding, documentation links, and social links.
+ *
+ * @returns The application's root React element.
+ */
 function App() {
   const [count, setCount] = useState(0)
   const [theme, setTheme] = useState<'light' | 'dark'>(() => {
