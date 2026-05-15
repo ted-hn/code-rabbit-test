@@ -35,7 +35,7 @@ function App() {
         <div style={{ position: 'absolute', top: 16, right: 16 }}>
           <button
             aria-pressed={theme === 'dark'}
-            aria-label="Toggle dark mode"
+            aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
             onClick={() => setTheme((t) => (t === 'dark' ? 'light' : 'dark'))}
             style={{
               padding: '6px 10px',

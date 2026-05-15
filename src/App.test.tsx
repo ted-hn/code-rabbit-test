@@ -81,14 +81,14 @@ afterEach(() => {
 
 describe('theme initialisation', () => {
   it('defaults to light when localStorage is empty and matchMedia prefers light', () => {
-    localStorageMock.getItem.mockReturnValue(null)
+    localStorageMock.getItem.mockReturnValue(null as any)
     render(<App />)
     expect(document.documentElement.classList.contains('light')).toBe(true)
     expect(document.documentElement.classList.contains('dark')).toBe(false)
   })
 
   it('defaults to dark when matchMedia prefers dark and localStorage is empty', () => {
-    localStorageMock.getItem.mockReturnValue(null)
+    localStorageMock.getItem.mockReturnValue(null as any)
     setMatchMedia(true)
     render(<App />)
     expect(document.documentElement.classList.contains('dark')).toBe(true)
@@ -143,7 +143,7 @@ describe('theme initialisation', () => {
   })
 
   it('handles missing matchMedia (treats as light)', () => {
-    localStorageMock.getItem.mockReturnValue(null)
+    localStorageMock.getItem.mockReturnValue(null as any)
     // @ts-expect-error deliberately remove matchMedia
     delete window.matchMedia
     render(<App />)
@@ -171,7 +171,7 @@ describe('useEffect theme side-effects', () => {
   })
 
   it('persists light theme to localStorage on mount', () => {
-    localStorageMock.getItem.mockReturnValue(null)
+    localStorageMock.getItem.mockReturnValue(null as any)
     setMatchMedia(false)
     render(<App />)
     expect(localStorageMock.setItem).toHaveBeenCalledWith('site-theme', 'light')
